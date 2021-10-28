@@ -1,0 +1,37 @@
+﻿@model  List<PersonaModel>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Listado de personas</h3>
+    </div>
+    <div class="col-md-6">
+        <a asp-controller="Personas" asp-action="Nuevo" class="btn btn-primary float-lg-right" >Nuevo</a>
+    </div>
+</div>
+<hr />
+<div class="card">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nombre</td>
+                    <td>
+                        <a asp-route-id="@item.Id" asp-controller="Personas" asp-action="Editar" class="btn btn-warning">Editar</a>
+                        <a asp-route-id="@item.Id" asp-controller="Personas" asp-action="EliminarPersona" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                } 
+            </tbody>
+           
+        </table>
+    </div>
+</div>
